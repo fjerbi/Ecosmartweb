@@ -1,0 +1,75 @@
+topannonce:
+    path:     /
+    defaults: { _controller: AnnonceBundle:Annonce:findByLikes }
+addannonce:
+    path: /addannonce
+    defaults: { _controller: AnnonceBundle:Annonce:add }
+
+showannonce:
+    path: /showannonce
+    defaults: { _controller: AnnonceBundle:Annonce:list }
+
+
+update_annonce:
+    path:   /update/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:Updatean }
+
+delete_annonce:
+    path:   /delete/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:deletean }
+
+
+show_detailed_annonce:
+    path:   /detailed/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:Showdetailedan }
+
+add_comment:
+    path:   /addcomment
+    defaults: { _controller: AnnonceBundle:Annonce:addComment }
+
+
+annonce_like:
+    path:   /annonce/{id}/like
+    defaults: { _controller: AnnonceBundle:Annonce:like }
+
+listeannonce_admin:
+    path:     /admin/listeannonce
+    defaults: { _controller: AnnonceBundle:Annonce:listad }
+
+
+
+deleteannonce_admin:
+    path:     /delete/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:deleteadan }
+
+delete_comment:
+    path:     /deletecomment/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:supprimerCommentaire }
+
+
+frontend_header_search_autocomplete:
+    path: /annonce/autocomplete/
+    defaults: { _controller: AnnonceBundle:Annonce:mainSearchAutocomplete }
+
+updateanadmin:
+    path:  /admin/update/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:Updateanad }
+
+ajax_search:
+    path:  /search
+    defaults: { _controller: AnnonceBundle:Annonce:search }
+    methods: GET
+
+
+liste_commentaire:
+    path:  /listecommentaire
+    defaults: { _controller: AnnonceBundle:Annonce:listcommentairead }
+
+delete_commentaire:
+    path:  /admin/delete/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:deletecomment }
+
+delete_commentaire_user:
+    path:  /delete/{id}
+    defaults: { _controller: AnnonceBundle:Annonce:deletecommentaire }
+

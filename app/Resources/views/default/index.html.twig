@@ -1,0 +1,864 @@
+{% extends 'base.html.twig' %}
+{% block nav %}
+    <!--// Navigation \\-->
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index-2.html">Home</a>
+
+                </li>
+
+                <li><a href="{{ path('evenement_homepage') }}">EVENTS</a>
+
+                </li>
+
+                <li><a href="#">Annonces</a>
+                    <ul class="environment-dropdown-menu">
+                        <li><a href="{{ path('topannonce') }}">Top annonces</a></li>
+                        <li><a href="{{ path('showannonce') }}">Liste des annonces</a></li>
+                        <li><a href="{{ path('addannonce') }}">Ajouter une annonce</a></li>
+
+                    </ul>
+                </li>
+
+
+                <li><a href="{{ path('produit_recycle_homepage') }}">Shops</a>
+
+
+                </li>
+                <li class="environment-megamenu-li"><a href="{{ path('association_homepage') }}">Associations</a>
+
+                </li>
+                <!--TO COMPLETE BY ACHREF-->
+                <li class="environment-megamenu-li"><a href="{{ path('challenge_homepage') }}">CHALLENGES</a></li>
+
+                <!--TO COMPLETE BY OUSSEINI-->
+                <li class="environment-megamenu-li"><a href="{{ path('reclamation_homepage') }}">RECLAMATION</a></li>
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {{ render(controller('AppBundle:Notification:display')) }}
+                {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+
+                {% endif %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+
+
+
+                <li class="dropdown">
+
+
+
+                    <div class="profile-header-container">
+
+                        <div class="profile-header-img">
+
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle waves-effect waves-light"> <img class="img-circle" style="width: 50px; height: 50px;" src="http://www.clker.com/cliparts/d/L/P/X/z/i/no-image-icon-hi.png" /></a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i> My Profile</a></li>
+                                <li><a href="#"><i class="fa fa-google-wallet"></i> My Balance</a></li>
+                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-compass"></i> Account Setting</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
+                            </ul>
+                            <div class="rank-label-container">
+                                <span>{{ app.user.username }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </li>
+                {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <li><a href="{{ path('fos_user_security_login') }}">LOGIN</a>
+                    {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!--// Navigation \\-->
+
+{% endblock %}
+
+{% block container %}
+
+    {% block banner %}
+        <div class="demo-cont">
+            <!-- slider start -->
+            <div class="fnc-slider example-slider">
+                <div class="fnc-slider__slides">
+                    <!-- slide start -->
+                    <div class="fnc-slide m--blend-green m--active-slide">
+                        <div class="fnc-slide__inner">
+                            <div class="fnc-slide__mask">
+                                <div class="fnc-slide__mask-inner"></div>
+                            </div>
+                            <div class="fnc-slide__content">
+                                <h2 class="fnc-slide__heading">
+                                    <div class="fnc-slide__heading-line">
+                                        <span>ECO</span>
+                                    </div>
+                                    <div class="fnc-slide__heading-line">
+                                        <span>SMART +</span>
+                                    </div>
+                                </h2>
+                                <button type="button" class="fnc-slide__action-btn">
+                                    DONATE
+                                    <span data-text="Credits">DONATE</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slide end -->
+                    <!-- slide start -->
+                    <div class="fnc-slide m--blend-dark">
+                        <div class="fnc-slide__inner">
+                            <div class="fnc-slide__mask">
+                                <div class="fnc-slide__mask-inner"></div>
+                            </div>
+                            <div class="fnc-slide__content">
+                                <h2 class="fnc-slide__heading">
+                                    <div class="fnc-slide__heading-line">
+                                        <span>ECO</span>
+                                    </div>
+                                    <div class="fnc-slide__heading-line">
+                                        <span>SMART +</span>
+                                    </div>
+                                </h2>
+                                <button type="button" class="fnc-slide__action-btn">
+                                    DONATE
+                                    <span data-text="Credits">DONATE</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slide end -->
+                    <!-- slide start -->
+                    <div class="fnc-slide m--blend-red">
+                        <div class="fnc-slide__inner">
+                            <div class="fnc-slide__mask">
+                                <div class="fnc-slide__mask-inner"></div>
+                            </div>
+                            <div class="fnc-slide__content">
+                                <h2 class="fnc-slide__heading">
+                                    <div class="fnc-slide__heading-line">
+                                        <span>BE</span>
+                                    </div>
+                                    <div class="fnc-slide__heading-line">
+                                        <span>SMARTER</span>
+                                    </div>
+                                </h2>
+                                <button type="button" class="fnc-slide__action-btn">
+                                    DONATE
+                                    <span data-text="Credits">DONATE</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slide end -->
+                    <!-- slide start -->
+                    <div class="fnc-slide m--blend-blue">
+                        <div class="fnc-slide__inner">
+                            <div class="fnc-slide__mask">
+                                <div class="fnc-slide__mask-inner"></div>
+                            </div>
+                            <div class="fnc-slide__content">
+                                <h2 class="fnc-slide__heading">
+                                    <div class="fnc-slide__heading-line">
+                                        <span>GO</span>
+                                    </div>
+                                    <div class="fnc-slide__heading-line">
+                                        <span>GREEN</span>
+                                    </div>
+                                </h2>
+                                <button type="button" class="fnc-slide__action-btn">
+                                    DONATE
+                                    <span data-text="Credits">DONATE</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- slide end -->
+                </div>
+                <nav class="fnc-nav">
+                    <div class="fnc-nav__bgs">
+                        <div class="fnc-nav__bg m--navbg-green m--active-nav-bg"></div>
+                        <div class="fnc-nav__bg m--navbg-dark"></div>
+                        <div class="fnc-nav__bg m--navbg-red"></div>
+                        <div class="fnc-nav__bg m--navbg-blue"></div>
+                    </div>
+                    <div class="fnc-nav__controls">
+                        <button class="fnc-nav__control">
+                            ECO SMART +
+                            <span class="fnc-nav__control-progress"></span>
+                        </button>
+                        <button class="fnc-nav__control">
+                            BE SMART
+                            <span class="fnc-nav__control-progress"></span>
+                        </button>
+                        <button class="fnc-nav__control">
+                            GO GREEN
+                            <span class="fnc-nav__control-progress"></span>
+                        </button>
+                        <button class="fnc-nav__control">
+                            ECO LIFE
+                            <span class="fnc-nav__control-progress"></span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+            <!-- slider end -->
+
+        </div>
+    {% endblock %}
+    <!--// Main Content \\-->
+    <div class="environment-main-content">
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-minus-margin">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="enviroment-services-strip">
+                            <ul class="row">
+                                <li class="col-md-3">
+                                    <h2 class="enviroment-heading"><span>Recycle</span> For All Its Worth</h2>
+                                </li>
+                                <li class="col-md-3">
+                                    <i class="icon-three3"></i>
+                                    <h2><span>The</span> GOOD</h2>
+                                </li>
+                                <li class="col-md-3">
+                                    <i class="icon-three3"></i>
+                                    <h2><span>The</span><br> BEST</h2>
+                                </li>
+                                <li class="col-md-3">
+                                    <i class="icon-three3"></i>
+                                    <h2><span>The</span> BETTER</h2>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-services-space">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="enviroment-services enviroment-simple-services">
+                            <ul class="row">
+                                <li class="col-md-6">
+                                    <div class="enviroment-services-left">
+                                        <span><i class="icon-flash"></i></span>
+                                        <section>
+                                            <h5><a href="#">Energy</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, con sect etur adipiscing elit.</p>
+                                        </section>
+                                    </div>
+                                </li>
+                                <li class="col-md-6">
+                                    <div class="enviroment-services-right">
+                                        <span><i class="icon-nature3"></i></span>
+                                        <section>
+                                            <h5><a href="#">Organic</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, con sect etur adipiscing elit.</p>
+                                        </section>
+                                    </div>
+                                </li>
+                                <li class="col-md-6">
+                                    <div class="enviroment-services-left">
+                                        <span><i class="icon-technology9"></i></span>
+                                        <section>
+                                            <h5><a href="#">Solar Lights</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, con sect etur adipiscing elit.</p>
+                                        </section>
+                                    </div>
+                                </li>
+                                <li class="col-md-6">
+                                    <div class="enviroment-services-right">
+                                        <span><i class="icon-arrows10"></i></span>
+                                        <section>
+                                            <h5><a href="#">Recycle</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, con sect etur adipiscing elit.</p>
+                                        </section>
+                                    </div>
+                                </li>
+                                <li class="col-md-6">
+                                    <div class="enviroment-services-left">
+                                        <span><i class="icon-nature-1"></i></span>
+                                        <section>
+                                            <h5><a href="#">Eco ideas</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, con sect etur adipiscing elit.</p>
+                                        </section>
+                                    </div>
+                                </li>
+                                <li class="col-md-6">
+                                    <div class="enviroment-services-right">
+                                        <span><i class="icon-nature-2"></i></span>
+                                        <section>
+                                            <h5><a href="#">Biology</a></h5>
+                                            <p>Lorem ipsum dolor sit amet, con sect etur adipiscing elit.</p>
+                                        </section>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-counter-space">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="environment-fancy-title"><h2>Every day 8,000 <span> Volunteers</span></h2></div>
+                        <div class="environment-counter">
+                            <ul class="row">
+                                <li class="col-md-3">
+                                    <i class="icon-null"></i>
+                                    <span id="word-count1">2,200</span>
+                                    <small>Volunteers</small>
+                                </li>
+                                <li class="col-md-3">
+                                    <i class="fa fa-heart-o"></i>
+                                    <span id="word-count2">780</span>
+                                    <small>Days of help</small>
+                                </li>
+                                <li class="col-md-3">
+                                    <i class="icon-signs4"></i>
+                                    <span id="word-count3">3,500</span>
+                                    <small>people saved</small>
+                                </li>
+                                <li class="col-md-3">
+                                    <i class="icon-money3"></i>
+                                    <span id="word-count4">10,000</span>
+                                    <small>funds collected</small>
+                                </li>
+                            </ul>
+<p>Si vous voulez nous encouragé, vous pouvez faire une donation pour notre site web :) </p>
+                            <div class="clearfix"></div>
+                            <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_s-xclick" />
+                                <input type="hidden" name="hosted_button_id" value="UBGNELFNLMJLY" />
+                                <input type="image" class="environment-donate-btn" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_TN/i/scr/pixel.gif" width="1" height="1" />
+                            </form>
+                            <div class="alert alert-info" role="alert">
+                                Vous pouvez payer via notre application mobile en scannant ce QR CODE.
+                            </div>
+<img src="{{ asset('front/qrpaypal/qrpaypal.png') }}">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section">
+            <div class="container-fluid">
+
+                <div class="environment-fancy-title"><h2>our<span> Projects</span></h2></div>
+                <div class="environment-project environment-modren-project">
+                    <ul class="row">
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img1.jpg')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img2.jpg')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img3.jpg')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img4.jpg
+')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('extra-images/project-gallery-img5.jpg')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img6.jpg
+')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img7.jpg')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="project-detail.html"><img src="{{asset('front/extra-images/project-gallery-img8.jpg')}}" alt=""></a>
+                                <figcaption>
+                                    <span class="environment-top-bottom-border"></span>
+                                    <div class="environment-gallery-text">
+                                        <h3><a href="project-detail.html">So to deliberately render</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consecr aipi elit. Ut tibulum lacus in cursus rutm. Ut vitae</p>
+                                        <span><a href="project-detail.html" class="readmore-btn">READ MORE</a></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-blog-grid-full">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="environment-fancy-title"><h2>Dérnieres <span> Annonces</span></h2></div>
+                        <div class="environment-blog environment-blog-grid">
+                            <ul class="row">
+                                {% for annonces in annonces %}
+                                <li class="col-md-4">
+                                    <figure><a href="{{ path('show_detailed_annonce',{'id':annonces.id}) }}"><img src="{{ asset('uploads/annonce/' ~ annonces.photo) }}" alt=""><i class="fa fa-share-square-o"></i></a></figure>
+                                    <div class="environment-blog-grid-text">
+                                        <h4><a href="{{ path('show_detailed_annonce',{'id':annonces.id}) }}">{{ annonces.titre }}</a></h4>
+                                        <p>{{ annonces.description }}</p>
+                                        <ul class="blog-grid-option">
+                                            <li>
+                                                <i class="fa fa-calendar-o"></i>
+                                                <time datetime="2008-02-14 20:00">{{ annonces.dateannonce|  date}}</time>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-comments"></i>
+                                                <a href="404.html">{{ annonces.commentaires|length }}</a>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-user"></i>
+                                                <a href="404.html">{{ annonces.createur }}</a>
+                                            </li>
+                                          <center>  <li>
+                                                <i class="fa fa-thumbs-up"></i>
+                                                <a href="404.html">{{ annonces.likes|length }}</a>
+                                            </li></center>
+                                        </ul>
+                                    </div>
+                                </li>
+                               {% endfor %}
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-modren-full">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="environment-fancy-title"><h2>Upcoming <span>Events</span></h2></div>
+                        <div class="environment-event environment-modren-event">
+                            <ul class="row">
+                                <li class="col-md-12">
+                                    <figure>
+                                        <a href="event-detail.html"><img src="{{asset('front/extra-images/modren-event-img1.jpg')}}" alt=""><i class="fa fa-share-square-o"></i></a>
+                                        <time datetime="2008-02-14 20:00">09<br>FEB</time>
+                                    </figure>
+                                    <div class="environment-modren-event-text">
+                                        <h3><a href="event-detail.html">Phasellus vitae ligula sodales, auctor orci quis, fermentu retra in ipsum vitae</a></h3>
+                                        <ul class="environment-event-option">
+                                            <li>
+                                                <i class="fa fa-clock-o"></i>
+                                                Time:
+                                                <time datetime="2008-02-14 20:00">09:00 am - 02:00 pm</time>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-map-marker"></i>
+                                                Location :
+                                                <p>2073 El Ghazela , Ariana</p>
+                                            </li>
+                                        </ul>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum lacus in cursus rutru tis felis. Nulla convallis neque ac sagittis porttitor. Suspendisse at orci ac diam tinciduntd et ligula. Cras sollicitudin eu enim et ultricies.</p>
+                                    </div>
+                                </li>
+                                <li class="col-md-12">
+                                    <figure>
+                                        <a href="event-detail.html"><img src="{{asset('front/extra-images/modren-event-img2.jpg')}}" alt=""><i class="fa fa-share-square-o"></i></a>
+                                        <time datetime="2008-02-14 20:00">09<br>FEB</time>
+                                    </figure>
+                                    <div class="environment-modren-event-text">
+                                        <h3><a href="event-detail.html">Phasellus vitae ligula sodales, auctor orci quis, fermentu retra in ipsum vitae</a></h3>
+                                        <ul class="environment-event-option">
+                                            <li>
+                                                <i class="fa fa-clock-o"></i>
+                                                Time:
+                                                <time datetime="2008-02-14 20:00">09:00 am - 02:00 pm</time>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-map-marker"></i>
+                                                Location :
+                                                <p>9907 Salford Street , east London, UK</p>
+                                            </li>
+                                        </ul>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum lacus in cursus rutru tis felis. Nulla convallis neque ac sagittis porttitor. Suspendisse at orci ac diam tinciduntd et ligula. Cras sollicitudin eu enim et ultricies.</p>
+                                    </div>
+                                </li>
+                                <li class="col-md-12">
+                                    <figure>
+                                        <a href="event-detail.html"><img src="{{asset('front/extra-images/modren-event-img3.jpg')}}" alt=""><i class="fa fa-share-square-o"></i></a>
+                                        <time datetime="2008-02-14 20:00">09<br>FEB</time>
+                                    </figure>
+                                    <div class="environment-modren-event-text">
+                                        <h3><a href="event-detail.html">Phasellus vitae ligula sodales, auctor orci quis, fermentu retra in ipsum vitae</a></h3>
+                                        <ul class="environment-event-option">
+                                            <li>
+                                                <i class="fa fa-clock-o"></i>
+                                                Time:
+                                                <time datetime="2008-02-14 20:00">09:00 am - 02:00 pm</time>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-map-marker"></i>
+                                                Location :
+                                                <p>9907 Salford Street , east London, UK</p>
+                                            </li>
+                                        </ul>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vestibulum lacus in cursus rutru tis felis. Nulla convallis neque ac sagittis porttitor. Suspendisse at orci ac diam tinciduntd et ligula. Cras sollicitudin eu enim et ultricies.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="event-detail.html" class="modren-event-btn">More Events</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-donate-sectionfull">
+            <span class="donate-transparent"></span>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="environment-section-text">
+                            <h2>Our Company is An End-to-End Mid stream At</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing varius diam ac ipsuelit ut Nulla convallis neque</p>
+                            <a href="404.html" class="environment-simple-btn">Get A quote <span></span></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="environment-donate-form">
+                            <h2>Make A <span>Donation</span></h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vesbulumla us in cursus rutrum. Ut vitae sagittis felis.</p>
+                            <form>
+                                <ul>
+                                    <li>
+                                        <input type="text" value="Name*" onblur="if(this.value == '') { this.value ='Name*'; }" onfocus="if(this.value =='Name*') { this.value = ''; }"></li>
+                                    <li>
+                                        <input type="text" value="Phone*" onblur="if(this.value == '') { this.value ='Phone*'; }" onfocus="if(this.value =='Phone*') { this.value = ''; }"></li>
+                                    <li>
+                                        <input type="text" value="Email*" onblur="if(this.value == '') { this.value ='Email*'; }" onfocus="if(this.value =='Email*') { this.value = ''; }"></li>
+                                    <li>
+                                        <input type="text" value="Website*" onblur="if(this.value == '') { this.value ='Website*'; }" onfocus="if(this.value =='Website*') { this.value = ''; }"></li>
+                                    <li class="environment-select-form">
+                                        <div class="environment-select-two">
+                                            <select>
+                                                <option value="">Select Your Campaign</option>
+                                                <option value="pakistan">Campaign</option>
+                                                <option value="india">Campaign</option>
+                                                <option value="usa">Campaign</option>
+                                                <option value="student">Campaign</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li class="environment-select-form">
+                                        <div class="environment-select-two">
+                                            <select>
+                                                <option value="">Select Your Amount</option>
+                                                <option value="pakistan">Select Amount</option>
+                                                <option value="india">Select Amount</option>
+                                                <option value="usa">Select Amount</option>
+                                                <option value="student">Select Amount</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li><label><input type="submit" value="Donate Now"></label></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section environment-cause-gridfull">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="environment-fancy-title"><h2>Our Recent <span>Causes</span></h2></div>
+                        <div class="environment-cause environment-cause-simplegrid">
+                            <ul class="row">
+                                <li class="col-md-3">
+                                    <figure>
+                                        <a href="cause-detail.html"><img src="{{asset('extra-images/cause-simple-grid1.jpg')}}" alt=""></a>
+                                        <figcaption> <a href="cause-detail.html">12 Donors</a> </figcaption>
+                                    </figure>
+                                    <section>
+                                        <h5><a href="cause-detail.html">Go Green Movement</a></h5>
+                                        <p>Lorem ipsum dolor sit amet hk consectetur adipiscin elita de vestibulum lacus </p>
+                                        <a href="cause-detail.html" class="environment-fancy-btn">Read More<span></span></a>
+                                    </section>
+                                    <div class="skillst">
+                                        <div class="progressbar1" data-width="63" data-target="63"></div>
+                                    </div>
+                                    <div class="cause-simplegrid-bottom">
+                                        <span>Raised $ 2750</span>
+                                        <span>Goal $ 5000</span>
+                                    </div>
+                                </li>
+                                <li class="col-md-3">
+                                    <figure>
+                                        <a href="cause-detail.html"><img src="{{asset('
+extra-images/cause-simple-grid2.jpg')}}" alt=""></a>
+                                        <figcaption> <a href="cause-detail.html">12 Donors</a> </figcaption>
+                                    </figure>
+                                    <section>
+                                        <h5><a href="cause-detail.html">Give Them Education</a></h5>
+                                        <p>Lorem ipsum dolor sit amet hk consectetur adipiscin elita de vestibulum lacus </p>
+                                        <a href="cause-detail.html" class="environment-fancy-btn">Read More<span></span></a>
+                                    </section>
+                                    <div class="skillst">
+                                        <div class="progressbar1" data-width="63" data-target="63"></div>
+                                    </div>
+                                    <div class="cause-simplegrid-bottom">
+                                        <span>Raised $ 2750</span>
+                                        <span>Goal $ 5000</span>
+                                    </div>
+                                </li>
+                                <li class="col-md-3">
+                                    <figure>
+                                        <a href="cause-detail.html"><img src="{{asset('
+extra-images/cause-simple-grid3.jpg')}}" alt=""></a>
+                                        <figcaption> <a href="cause-detail.html">12 Donors</a> </figcaption>
+                                    </figure>
+                                    <section>
+                                        <h5><a href="cause-detail.html">Help In Planting Trees</a></h5>
+                                        <p>Lorem ipsum dolor sit amet hk consectetur adipiscin elita de vestibulum lacus </p>
+                                        <a href="cause-detail.html" class="environment-fancy-btn">Read More<span></span></a>
+                                    </section>
+                                    <div class="skillst">
+                                        <div class="progressbar1" data-width="63" data-target="63"></div>
+                                    </div>
+                                    <div class="cause-simplegrid-bottom">
+                                        <span>Raised $ 2750</span>
+                                        <span>Goal $ 5000</span>
+                                    </div>
+                                </li>
+                                <li class="col-md-3">
+                                    <figure>
+                                        <a href="cause-detail.html"><img src="{{asset('extra-images/cause-simple-grid4.jpg')}}" alt=""></a>
+                                        <figcaption> <a href="cause-detail.html">12 Donors</a> </figcaption>
+                                    </figure>
+                                    <section>
+                                        <h5><a href="cause-detail.html">Go Green Movement</a></h5>
+                                        <p>Lorem ipsum dolor sit amet hk consectetur adipiscin elita de vestibulum lacus </p>
+                                        <a href="cause-detail.html" class="environment-fancy-btn">Read More<span></span></a>
+                                    </section>
+                                    <div class="skillst">
+                                        <div class="progressbar1" data-width="63" data-target="63"></div>
+                                    </div>
+                                    <div class="cause-simplegrid-bottom">
+                                        <span>Raised $ 2750</span>
+                                        <span>Goal $ 5000</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="environment-fancy-title"><h2>Our <span>Shop</span></h2></div>
+                        <div class="environment-shop environment-shop-grid shop-grid-slider">
+                            <div class="environment-shop-border">
+                                <figure><a href="shop-detail.html"><img src="{{asset('front/extra-images/shop-grid-img1.jpg
+')}}" alt=""><i class="fa fa-shopping-cart"></i></a></figure>
+                                <div class="environment-shop-grid-text">
+                                    <h4><a href="shop-detail.html">Black Ninja T-Shirt</a></h4>
+                                    <div class="star-rating"><span class="star-rating-box" style="width:58%"></span></div>
+                                    <span class="environment-shop-cartbox">
+                                            <del>$30.00</del>
+                                            $ 19.00
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="environment-shop-border">
+                                <figure><a href="shop-detail.html"><img src="
+{{asset('front/extra-images/shop-grid-img2.jpg
+')}}" alt=""><i class="fa fa-shopping-cart"></i></a></figure>
+                                <div class="environment-shop-grid-text">
+                                    <h4><a href="shop-detail.html">Ship Idea Card</a></h4>
+                                    <div class="star-rating"><span class="star-rating-box" style="width:58%"></span></div>
+                                    <span class="environment-shop-cartbox">
+                                            <del>$30.00</del>
+                                            $ 19.00
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="environment-shop-border">
+                                <figure><a href="shop-detail.html"><img src="
+{{asset('front/extra-images/shop-grid-img3.jpg')}}" alt=""><i class="fa fa-shopping-cart"></i></a></figure>
+                                <div class="environment-shop-grid-text">
+                                    <h4><a href="shop-detail.html">Ship Idea T-Shirt</a></h4>
+                                    <div class="star-rating"><span class="star-rating-box" style="width:58%"></span></div>
+                                    <span class="environment-shop-cartbox">
+                                            <del>$30.00</del>
+                                            $ 19.00
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="environment-shop-border">
+                                <figure><a href="shop-detail.html"><img src="
+{{asset('front/extra-images/shop-grid-img4.jpg')}}" alt=""><i class="fa fa-shopping-cart"></i></a></figure>
+                                <div class="environment-shop-grid-text">
+                                    <h4><a href="shop-detail.html">Ship Idea Card</a></h4>
+                                    <div class="star-rating"><span class="star-rating-box" style="width:58%"></span></div>
+                                    <span class="environment-shop-cartbox">
+                                            <del>$30.00</del>
+                                            $ 19.00
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="environment-shop-border">
+                                <figure><a href="shop-detail.html"><img src="{{asset('front/extra-images/shop-grid-img1.jpg')}}" alt=""><i class="fa fa-shopping-cart"></i></a></figure>
+                                <div class="environment-shop-grid-text">
+                                    <h4><a href="shop-detail.html">Ship Idea Card</a></h4>
+                                    <div class="star-rating"><span class="star-rating-box" style="width:58%"></span></div>
+                                    <span class="environment-shop-cartbox">
+                                            <del>$30.00</del>
+                                            $ 19.00
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+    </div>
+    <!--// Main Content \\-->
+{% endblock %}
+

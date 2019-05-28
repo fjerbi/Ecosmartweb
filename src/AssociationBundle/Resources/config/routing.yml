@@ -1,0 +1,5 @@
+association_homepage:
+    path:     /
+    defaults: { _controller: AssociationBundle:Association:association }
+
+

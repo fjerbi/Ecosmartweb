@@ -1,0 +1,47 @@
+
+.environment-color, .environment-colorhover:hover,.navbar-nav > li > a:before,.navbar-nav > li > a:after,.navbar-nav > li:hover > a,.navbar-nav > li.active > a,.environment-megalist li:hover a,
+.environment-dropdown-menu > li:hover > a,/*Arslan*/.enviroment-services-strip ul li .enviroment-heading > span,.enviroment-simple-services ul li:hover .enviroment-services-left span i,
+.enviroment-simple-services ul li:hover .enviroment-services-right span i,.environment-fancy-title h2 span,.environment-counter ul li i,.environment-counter ul li > span,
+.environment-donate-btn:hover,.blog-grid-option li i,.blog-grid-option li a:hover,.environment-event-option > li,.environment-simple-btn:hover,.environment-donate-form h2 span,
+.environment-cause-simplegrid figcaption a,.environment-fancy-btn,.cause-simplegrid-bottom span:last-child,.star-rating:before,.star-rating-box:before,.environment-shop-grid .slick-arrow:hover i,
+.widget_latest_news ul li:hover section h6 a,.widget_twitter ul li h6 a,.widget_twitter ul li p a,.environment-section-title h2 span,.environment-aboutus-text .enviroment-services-strip ul li i,
+.environment-aboutus-counter .enviroment-heading > span,.environment-testimonials-text i,.environment-partner-slider .slick-arrow:hover i,.environment-prev-artical h3 a:hover,
+.environment-next-artical h3 a:hover,.environment-prenxt-post ul li:hover .environment-post-arrow,.comment-reply-link,.environment-widget-heading h2 span,.widget_archive ul li:hover a,
+.widget_recent_blog ul li:hover .environment-recentpost h6 a,.environment-recentpost > .widget-post > li a:hover,.environment-event-text:hover h6 a,.widget_archive ul li:before,
+.widget_cetagories ul li:hover a,.widget_cetagories ul li:before,.environment-large-option > li,.environment-cause-donate > span.color,.environment-related-cause figcaption > a,
+.environment-related-cause .skillst > span.color,.environment-contactus-info ul li:hover span i,.donation-wrap h4 span,.environment-list-style-one li:before,.environment-project-option > li i,
+.environment-project-option > li span,.environment-project-option > li a:hover,.environment-project-list-wrap section span,.environment-search-options > li:hover a,
+.environment-related-search section > a span,.environment-price-cartbox,.environment-shop-Cetagory li a:hover {
+    color: #9cc900;
+}
+.environment-bgcolor, .environment-bgcolorhover:hover,.environment-top-strip,.environment-top-strip:before,/*Arslan*/.enviroment-services-left span,.enviroment-services-right span,
+.environment-fancy-title:before,.environment-fancy-title:after,.environment-fancy-title h2:before,.environment-fancy-title h2:after,.environment-donate-btn,.environment-modren-project ul,
+.environment-modren-project ul li figure > a:before,.environment-blog-grid ul li figure > a:before,.environment-blog-grid ul li figure > a:after,.blog-grid-option:before,
+.environment-modren-event ul li figure > time,.environment-modren-event ul li figure > a:before,.environment-modren-event ul li figure > a:after,.environment-event-option li time,
+.environment-event-option li p,.modren-event-btn,.environment-simple-btn:hover:before,.environment-simple-btn:hover:after,.environment-simple-btn:hover > span:before,.nav-tabs > li.active > a,
+.environment-simple-btn:hover > span:after,.environment-donate-form form ul li input[type="submit"],.environment-cause-simplegrid figcaption:before,.environment-cause-simplegrid figcaption:after,
+.environment-fancy-btn span:before,.environment-fancy-btn span:after,.environment-fancy-btn:before,.environment-fancy-btn:after,.bar-container .bar:before,.environment-shop-grid figure a i,
+.environment-footer-title:before,.environment-footer-title h2:before,.environment-footer-title h2:after,.widget_contact_info > ul > li > i,.widget_latest_news figure a:before,
+.environment-error-wrap form input[type="submit"],.widget_gallery ul li a:before,.widget_gallery ul li a:after,.environment-section-title:before,.environment-section-title h2:before,
+.environment-section-title h2:after,.environment-aboutus-counter.environment-counter ul li:before,.environment-team-modren figure a:before,.environment-team-modren figure a:after,
+.environment-team-social:before,blockquote:after,.environment-tags a:hover,.environment-prenxt-post ul li figure a:before,.environment-prenxt-post ul li figure a:after,.nav-tabs > li.active > a:hover,
+.environment-related-blog ul li figure > a:before,.environment-related-blog ul li figure > a:after,.environment-section-heading h2 span:before,.environment-section-heading h2:before,
+.environment-section-heading h2:after,.comment-respond form p input[type="submit"],.environment-widget-heading:before,.environment-widget-heading h2:before,.environment-widget-heading h2:after,
+.environment-post-hover,.widget_events ul li time,.widget_archive ul li:after,.widget_cetagories ul li:after,.environment-bloglarge ul li figure > a:before,.environment-readmore-btn,
+.environment-pagination > ul > li > span.current,.environment-pagination > ul > li > a:hover,.environment-blog-medium-wrap figure a:before,.environment-blog-medium-wrap figure a:after,
+.environment-plan-btn,.admin-post-option li span,.environment-adminpost-slider .slick-arrow:hover,.environment-related-cause figcaption:before,.environment-related-cause figcaption:after,
+.environment-cause-list ul li figure a:before,.environment-contactus-info ul li span,.environment-contact-form form input[type="submit"],.environment-donation-section ul li.current > .donation-wrap:after,
+.environment-add-amount input[type="submit"],.environment-Donation-form form ul li input[type="submit"],.event-detail-option li time,.event-detail-option li p,.environment-related-event figure a:before,
+.environment-related-event ul li figure > time,.environment-event-grid ul li figure a:before,.environment-event-grid ul li figure > time,.environment-masonery-gallery ul li figure > a:before,
+.environment-project-grid figure a:before,.environment-project-list-wrap figure a:before,.environment-project-list-wrap figure a:after,.environment-project-medium-wrap figure a:before,
+.environment-project-medium-wrap figure a:after,.environment-related-search figure a:before,.environment-search-options > li i,.environment-images-list li a:before,.nav-tabs > li.active > a:focus,
+.environment-shop-list-wrap figure a:before,.environment-related-team figure a:before,.environment-team-grid figure a:before,.environment-team-grid figure a:after {
+    background-color: #9cc900;
+}
+.environment-bordercolor, .environment-bordercolorhover:hover,.environment-dropdown-menu,.environment-megamenu,.environment-cart-box,.environment-search-popup/*Arslan*/ {
+    border-color: #9cc900;
+}
+
+.environment-user-option li a:before/*Arslan*/ {
+	border-bottom-color: #9cc900;
+}

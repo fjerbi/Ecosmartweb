@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <!--// Navigation \\-->
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index-2.html">Home</a>
+
+                </li>
+
+                <!--    <li><a href="{{ path('evenement_homepage') }}">EVENTS</a>
+
+                </li>
+                <li><a href="{{ path('annonce_homepage') }}">Annonces</a>
+
+                </li>  -->
+                <li><a href="{{ path('produit_recycle_homepage') }}">Product</a>
+
+                </li>
+             <!--   <li class="environment-megamenu-li"><a href="{{ path('association_homepage') }}">Associations</a>
+
+                </li> -->
+
+
+                <li><a href="{{ path('aboutus') }}">ABout Us</a></li>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+
+
+
+                <li class="dropdown">
+
+
+
+                    <div class="profile-header-container">
+
+                        <div class="profile-header-img">
+
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle waves-effect waves-light"> <img class="img-circle" style="width: 50px; height: 50px;" src="http://www.clker.com/cliparts/d/L/P/X/z/i/no-image-icon-hi.png" /></a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i> My Profile</a></li>
+                                <li><a href="#"><i class="fa fa-google-wallet"></i> My Balance</a></li>
+                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-compass"></i> Account Setting</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
+                            </ul>
+                            <div class="rank-label-container">
+                                <span>{{ app.user.username }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </li>
+                {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <li><a href="{{ path('fos_user_security_login') }}">LOGIN</a>
+                    {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!--// Navigation \\-->
+
+{% endblock %}
+{% block container %}
+
+    <h1>  BONJOUR {{ app.user.username }}</h1>
+
+
+{% endblock %}

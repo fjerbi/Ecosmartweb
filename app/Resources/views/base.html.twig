@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+
+        <link href="{{ asset('front/css/bootstrap.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/font-awesome.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/flaticon.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/slick-slider.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/fancybox.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/slick-slider.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/style.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/color.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/css/responsive.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="{{asset('frontweb/css/style.css')}}">
+        <link href="{{ asset('back/css/animate.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+        <style>
+
+
+
+
+            .profile-header-img {
+                margin-top: -15px;
+            }
+
+            .profile-header-img > img.img-circle {
+                width: 40px;
+                height: 40px;
+                border: 2px solid #51D2B7;
+            }
+
+
+
+        </style>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('front/ecosmart_mzA_icon.ico') }}" />
+</head>
+
+<body>
+<div class="environment-main-wrapper">
+    {% block header %}
+
+        <!--// Header \\-->
+        <header id="environment-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"> <a href="#" class="environment-logo">
+                            <img style="width: 140px" src="{{asset('front/images/ECOSMART.png')}}" alt=""></a>
+                    </div>
+
+                    <div class="col-md-10">
+
+                        <!--// TopStrip \\-->
+                        <div class="environment-top-strip">
+                            <ul class="environment-strip-icon">
+                                <li><a href="#" class="icon-social23"></a></li>
+                                <li><a href="#" class="icon-social43"></a></li>
+                                <li><a href="#" class="icon-social33"></a></li>
+                                <li><a href="#" class="icon-logo22"></a></li>
+                            </ul>
+                            <ul class="environment-strip-info">
+                                <li><i class="fa fa-map-marker"></i> Ariana, Borj Louzie</li>
+                                <li><i class="fa fa-phone"></i> +216 71 777 777</li>
+                                <li><i class="fa fa-envelope-o"></i> <a href="mailto:name@email.com">ecosmartpluus@gmail.com</a></li>
+
+
+                                <li><a href="{{ path('aboutus') }}">A propos</a></li>
+                            </ul>
+                        </div>
+                        <!--// TopStrip \\-->
+
+                        <div class="environment-main-section">
+
+                            {% block nav %}
+                                <!--// Navigation \\-->
+                                <nav class="navbar navbar-default">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="active"><a href="{{ path('homepage') }}">Home</a>
+
+                                            </li>
+
+                                            <li><a href="{{ path('evenement_homepage') }}">EVENTS</a>
+
+                                            </li>
+
+                                            <li><a href="#">Annonces</a>
+                                                <ul class="environment-dropdown-menu">
+
+                                                    <li><a href="{{ path('showannonce') }}">Liste des annonces</a></li>
+                                                   {% if is_granted('IS_AUTHENTICATED_FULLY') %} <li><a href="{{ path('addannonce') }}">Ajouter une annonce</a></li>
+
+                                                    {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+
+                                                    {% endif %}
+
+
+                                                </ul>
+                                            </li>
+                                            <li><a href="{{ path('produit_recycle_homepage') }}">Shops</a>
+
+                                            </li>
+                                            <li class="environment-megamenu-li"><a href="{{ path('association_homepage') }}">Associations</a>
+
+                                            </li>
+                                            <!--TO COMPLETE BY ACHREF-->
+                                            <li class="environment-megamenu-li"><a href="{{ path('challenge_homepage') }}">CHALLENGES</a></li>
+
+                                            <!--TO COMPLETE BY OUSSEINI-->
+                                            <li class="environment-megamenu-li"><a href="{{ path('reclamation_homepage') }}">RECLAMATION</a></li>
+
+                                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                                {{ render(controller('AppBundle:Notification:display')) }}
+                                            {% elseif is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+
+                                            {% endif %}
+                                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+
+
+
+                                            <li class="dropdown">
+
+
+
+                                                <div class="profile-header-container">
+
+                                                    <div class="profile-header-img">
+
+                                                        <a data-toggle="dropdown" href="#" class="dropdown-toggle waves-effect waves-light"> <img class="img-circle" style="width: 50px; height: 50px;" src="http://www.clker.com/cliparts/d/L/P/X/z/i/no-image-icon-hi.png" /></a>
+                                                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                                                            <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i> My Profile</a></li>
+                                                            <li><a href="#"><i class="fa fa-google-wallet"></i> My Balance</a></li>
+                                                            <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
+                                                            <li role="separator" class="divider"></li>
+                                                            <li><a href="#"><i class="fa fa-compass"></i> Account Setting</a></li>
+                                                            <li role="separator" class="divider"></li>
+                                                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
+                                                        </ul>
+                                                        <div class="rank-label-container">
+                                                            <span>{{ app.user.username }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </li>
+                                            {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                                            <li><a href="{{ path('fos_user_security_login') }}">LOGIN</a>
+                                                {% endif %}
+
+
+
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <!--// Navigation \\-->
+
+
+                            {% endblock %}
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--// Header \\-->
+
+    {% endblock %}
+
+
+
+
+    <!--// Main Wrapper \\-->
+    <div class="environment-main-wrapper">
+
+        {% block container %}
+
+        {% endblock %}
+
+
+        {% block footer %}
+            <!--// Footer \\--><br>
+            <footer id="environment-footer" class="environment-footer-one">
+
+                <div class="environment-footer-widget">
+                    <div class="container">
+                        <div class="row">
+
+                            <!--// Widget Contact Info \\-->
+                            <aside class="col-md-3 widget widget_contact_info">
+                                <div class="environment-footer-title"><h2>About Eye Eco</h2></div>
+                                <p>Lorem ipsum dolor sit amet, consectet ur adipiscing elit ut vestibulum.</p>
+                                <ul>
+                                    <li><i class="fa fa-envelope-o"></i> <a href="mailto:name@email.com">info@example.com</a></li>
+                                    <li><i class="fa fa-map-marker"></i> Salford road, east London, UK</li>
+                                    <li><i class="fa fa-phone"></i> +123 45 678</li>
+                                </ul>
+                                <ul class="environment-footer-social">
+                                    <li><a href="https://www.facebook.com/" class="icon-facebook2"></a></li>
+                                    <li><a href="https://twitter.com/login" class="icon-social43"></a></li>
+                                    <li><a href="https://pk.linkedin.com/" class="icon-linkedin"></a></li>
+                                    <li><a href="https://plus.google.com/" class="icon-google-plus2"></a></li>
+                                </ul>
+                            </aside>
+                            <!--// Widget Contact Info \\-->
+
+                            <!--// Widget Latest News \\-->
+                            <aside class="col-md-3 widget widget_latest_news">
+                                <div class="environment-footer-title"><h2>Nos Annonces</h2></div>
+                                <ul>
+
+
+                                </ul>
+                            </aside>
+                            <!--// Widget Latest News \\-->
+
+                            <!--// Widget Twitter \\-->
+                            <aside class="col-md-3 widget widget_twitter">
+                                <div class="environment-footer-title"><h2>Twitter Feeds</h2></div>
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-twitter"></i>
+                                        <h6><a href="404.html">@ecoeyeenv</a> <time datetime="2008-02-14 20:00">1 day ago</time></h6>
+                                        <p>Our New WordPress Theme "Eco Worl d" for… <a href="404.html">https://t.co/dtjSo07K4A</a></p>
+                                    </li>
+                                    <li>
+                                        <i class="fa fa-twitter"></i>
+                                        <h6><a href="404.html">@ecoeyeenv</a> <time datetime="2008-02-14 20:00">1 day ago</time></h6>
+                                        <p>Our New WordPress Theme "Eco Worl d" for… <a href="404.html">https://t.co/dtjSo07K4A</a></p>
+                                    </li>
+                                </ul>
+                            </aside>
+                            <!--// Widget Twitter \\-->
+
+                            <!--// Widget Gallery \\-->
+                            <aside class="col-md-3 widget widget_gallery">
+                                <div class="environment-footer-title"><h2>Flicker Photos</h2></div>
+
+                            </aside>
+                            <!--// Widget Gallery \\-->
+
+                        </div>
+                    </div>
+                </div>
+
+                <!--// CopyRight Section \\-->
+                <div class="environment-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="index-2.html" class="environment-footer-logo"><img src="{{asset('front/images/footer-logo.png')}}" alt=""></a>
+                                <p>© 2019, All Right Reserved - by <a href="index-2.html">CaffeineOverflow</a></p>
+                                <a href="#" class="environment-back-top"><i class="fa fa-angle-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--// CopyRight Section \\-->
+
+            </footer>
+            <!--// Footer \\-->
+        {% endblock %}
+
+        <div class="clearfix"></div>
+    </div>
+
+    {% block javascripts %}
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+        <script src="{{ asset('bundles/tetranzselect2entity/js/select2entity.js') }}"></script>
+
+
+        <script type="text/javascript" src="{{ asset('front/script/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('front/script/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('front/script/slick.slider.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('front/script/jquery.countdown.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('front/script/fancybox.pack.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('front/script/isotope.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('front/script/progressbar.js') }}"></script>
+
+        <script type="text/javascript" src="{{asset('front/script/counter.js')}}"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+        <script type="text/javascript" src="{{asset('front/script/functions.js')}}"></script>
+        <script src="{{ asset('frontweb/jquery.bootstrap-growl.js')}}"></script>
+        <script  src="{{asset('frontweb/js/index.js')}}"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            function onClickBtnLike(event)
+            {
+                event.preventDefault();
+
+                const url= this.href;
+                const spanCount = this.querySelector('span.js-likes');
+                const icone = this.querySelector('i');
+                axios.get(url).then(function(response) {
+                    spanCount.textContent= response.data.likes;
+                    if(icone.classList.contains('fas')) {
+
+                        icone.classList.replace('fas', 'far');
+                    }
+                    else {
+                        icone.classList.replace('far', 'fas');
+
+                    } }).catch(function(error) {
+                    if(error.response.status ===403){
+                        $(function() {
+                            $.bootstrapGrowl("Veuillez vous connecter pour pouvoir aimer cette annonce !");
+
+                        })
+                    }
+                });
+            }
+            document.querySelectorAll('a.js-like').forEach(function (link) {
+                link.addEventListener('click',onClickBtnLike);
+            })
+
+        </script>
+    {% endblock %}
+
+
+</div>
+</body>
+</html>

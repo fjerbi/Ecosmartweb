@@ -1,0 +1,4 @@
+services:
+#    challenge.example:
+#        class: ChallengeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

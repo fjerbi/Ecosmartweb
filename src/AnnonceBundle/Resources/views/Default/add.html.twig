@@ -1,0 +1,80 @@
+
+{% extends 'base.html.twig' %}
+{% block container %}
+    <center>
+    <div class="environment-subheader">
+        <span class="subheader-transparent"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Les Annonces</h1>
+                </div>
+                <div class="col-md-12">
+                    <ul class="environment-breadcrumb">
+                        <li><a href="#">Accueil</a></li>
+                        <li>Annonces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        {% for msg in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    <br><br><br>
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+
+    {% endfor %}
+    <div class="col-md-9">
+    <div class="environment-contact-form">
+
+    <ul>
+    <li>
+        <br><br>
+     <center>  <div class="environment-fancy-title"><h2>Ajouter <span> Une annonce</span></h2></div></center>
+        {{ form_start(Form) }}
+
+        <label>Titre de l'annonce : </label>
+     {{ form_widget(Form.titre,{'attr':{'type':'text','class':' border-top-0 border-left-0 border-right-0 rounded-0 pl-4','placeholder':'Titre...'}}) }}
+    </li>
+
+        <br><br>
+   <label>Description : </label>
+
+<li>
+      {{ form_widget(Form.description,{'attr':{'type':'text','class':' border-top-0 border-left-0 border-right-0 rounded-0 pl-4' ,'placeholder':'Description...'}}) }}
+</li>
+        <br><br>
+   <label>Photo : </label><br>
+
+        <li>{{ form_widget(Form.photo) }}</li>
+
+        <br> <br> <br> <br>
+
+        <li>{{ form_widget(Form.adresse) }}</li>
+
+        <br> <br> <br> <br>
+
+        <center><div > {{ form_widget(Form.captcha,{'attr':{'type':'captcha'}}) }}</div></center>
+        <br>
+
+        <br>  <br>
+
+    <center><div > {{ form_widget(Form.Ajouter,{'attr':{'type':'submit'}}) }}</div></center>
+    <br>
+
+    </ul>
+    </div>
+    </div>
+        {{ form_end(Form) }}
+    </center>
+
+{% endblock %}
+

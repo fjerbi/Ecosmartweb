@@ -1,0 +1,4 @@
+services:
+#    produit_recycle.example:
+#        class: ProduitRecycleBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

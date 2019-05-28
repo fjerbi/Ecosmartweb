@@ -1,0 +1,53 @@
+esprit_api:
+    resource: "@EspritApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation
+
+association:
+    resource: "@AssociationBundle/Resources/config/routing.yml"
+    prefix:   /association
+
+annonce:
+    resource: "@AnnonceBundle/Resources/config/routing.yml"
+    prefix:   /annonce
+
+challenge:
+    resource: "@ChallengeBundle/Resources/config/routing.yml"
+    prefix:   /challenge
+
+evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /evenement
+
+produit_recycle:
+    resource: "@ProduitRecycleBundle/Resources/config/routing.yml"
+    prefix:   /produitrecycle
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_resetting:
+    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    prefix: /resetting
+
+gregwar_captcha_routing:
+    resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+

@@ -1,0 +1,3 @@
+challenge_homepage:
+    path:     /
+    defaults: { _controller: ChallengeBundle:Default:index }

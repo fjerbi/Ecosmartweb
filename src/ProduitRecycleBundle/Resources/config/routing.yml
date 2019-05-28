@@ -1,0 +1,3 @@
+produit_recycle_homepage:
+    path:     /
+    defaults: { _controller: ProduitRecycleBundle:ProduitRecyce:produit }

@@ -1,0 +1,92 @@
+esprit_api_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+
+all:
+    path:     /annonces/all
+    defaults: { _controller: EspritApiBundle:Annonceapi:all }
+
+create_annonce:
+    path:     /annonces/add
+    defaults: { _controller: EspritApiBundle:Annonceapi:add }
+allUsers:
+    path:     /all/users
+    defaults: { _controller: EspritApiBundle:Annonceapi:AllUsers }
+
+finduser:
+    path:     /mobfind
+    defaults: { _controller: EspritApiBundle:Annonceapi:find }
+deleateannonce:
+    path:     annonce/delete/{titre}
+    defaults: { _controller: EspritApiBundle:Annonceapi:delet }
+allComents:
+    path:     /all/coments
+    defaults: { _controller: ApiBundle:Default:AllComents }
+
+add_annuser:
+    path:     /ajouter
+    defaults: { _controller: EspritApiBundle:Annonceapi:Addannuser }
+ValiderPanier:
+    path:     /Valider/panier/{idUser}/{prixTotal}
+    defaults: { _controller: ApiBundle:Default:Validerpanier }
+
+Commander:
+    path:     /Commander/commande/{idUser}/{IdPanier}
+    defaults: { _controller: ApiBundle:Default:Validerpanier }
+
+allMessageUser:
+    path:     /all/messages/{id}
+    defaults: { _controller: ApiBundle:Default:AllMessageUser }
+allMessage:
+    path:     /all/messages
+    defaults: { _controller: ApiBundle:Default:AllMessage }
+login:
+    path:     /login
+    defaults: { _controller: EspritApiBundle:Annonceapi:login }
+getUser:
+    path:     /get/user
+    defaults: { _controller: EspritApiBundle:Annonceapi:GetUserbyId }
+AjouterRate:
+    path:     /add/rate/{idp}/{idu}/{value}
+    defaults: { _controller: ApiBundle:Default:AjouterRate }
+addproduit:
+    path:     /add/produit/{quantite}/{image}/{description}/{categorie}/{titre}/{prix}/{idartisan}
+    defaults: { _controller: ApiBundle:Default:Addproduit }
+addpromotion:
+    path:     /add/promotion/{taux}/{idproduit}
+    defaults: { _controller: ApiBundle:Default:Addproduitpromotion }
+allproduitartisan:
+    path:     /all/produitartisant/{id}
+    defaults: { _controller: ApiBundle:Default:AllProductsArtisan }
+
+addMessage:
+    path:     /add/message/{idenv}/{idres}/{contenu}
+    defaults: { _controller: ApiBundle:Default:AddMessage }
+MesMessages:
+    path:     /Messages/{idUser}
+    defaults: { _controller: ApiBundle:Default:MesMessages }
+HistoryMessages:
+    path:     /add/history/{idenv}/{idres}
+    defaults: { _controller: ApiBundle:Default:HistoryMessages }
+addComm:
+    path:     /add/Comm/{text}/{idP}/{user}
+    defaults: { _controller: ApiBundle:Default:AddComm }
+allCom:
+    path:     /all/Comm/{idP}
+    defaults: { _controller: ApiBundle:Default:AllComs }
+
+abo_verif:
+    path:     /abo
+    defaults: { _controller: ApiBundle:Default:isAbo }
+
+maps:
+    path:     /map
+    defaults: { _controller: ApiBundle:Default:map }
+
+abo_add:
+    path:     /add/abo
+    defaults: { _controller: ApiBundle:Default:addAbo }
+
+get_abo:
+    path:     /get/abo
+    defaults: { _controller: ApiBundle:Default:getAboByMember }

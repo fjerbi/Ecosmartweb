@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+    <!--// Navigation \\-->
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index-2.html">ACCEUI</a>
+
+                </li>
+        <!--TO COMPLETE BY SAMAR-->
+                <li><a href="{{ path('evenement_homepage') }}">EVENEMENT</a>
+                    <ul class="environment-dropdown-menu">
+                        <li><a href="event-grid.html">Liste Evenements</a></li>
+                        <li><a href="event-grid-wls.html">Ajouter Evenement/</a></li>
+                        <li><a href="event-detail.html">Evenement</a>
+                            <ul class="environment-dropdown-menu">
+                                <li><a href="event-detail-wls.html"></a></li>
+                                <li><a href="event-detail.html"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <!--TO COMPLETE BY FIRAS-->
+
+                <li><a href="{{ path('annonce_homepage') }}">Annonces</a></li>
+
+
+                <!--TO COMPLETE BY SELIM-->
+                <li><a href="{{ path('produit_recycle_homepage') }}">Shops</a></li>
+
+                <!--TO COMPLETE BY AHMED-->
+                <li class="environment-megamenu-li"><a href="{{ path('association_homepage') }}">Associations</a></li>
+
+                <!--TO COMPLETE BY ACHREF-->
+                <li class="environment-megamenu-li"><a href="{{ path('challenge_homepage') }}">CHALLENGES</a></li>
+
+                <!--TO COMPLETE BY OUSSEINI-->
+                <li class="environment-megamenu-li"><a href="{{ path('reclamation_homepage') }}">RECLAMATION</a></li>
+
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+
+
+
+                <li class="dropdown">
+
+
+
+                    <div class="profile-header-container">
+
+                        <div class="profile-header-img">
+
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle waves-effect waves-light"> <img class="img-circle" style="width: 50px; height: 50px;" src="http://www.clker.com/cliparts/d/L/P/X/z/i/no-image-icon-hi.png" /></a>
+                            <ul class="dropdown-menu dropdown-user animated flipInY">
+                                <li><a href="{{ path('fos_user_profile_show') }}"><i class="fa fa-user"></i> My Profile</a></li>
+                                <li><a href="#"><i class="fa fa-google-wallet"></i> My Balance</a></li>
+                                <li><a href="#"><i class="fa fa-inbox"></i> Inbox</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-compass"></i> Account Setting</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Logout</a></li>
+                            </ul>
+                            <div class="rank-label-container">
+                                <span>{{ app.user.username }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </li>
+                {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <li><a href="{{ path('fos_user_security_login') }}">LOGIN</a>
+                    {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <!--// Navigation \\-->
+
+{% endblock %}
+
+
+{% block container %}
+
+    <h1>  BONJOUR {{ app.user.username }}</h1>
+
+
+{% endblock %}

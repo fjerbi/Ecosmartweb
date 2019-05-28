@@ -1,0 +1,281 @@
+
+{% extends 'base.html.twig' %}
+{% block container %}
+
+    <!--// SubHeader \\-->
+    <div class="environment-subheader">
+        <span class="subheader-transparent"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>{{ titre|upper }}</h1>
+                </div>
+                <div class="col-md-12">
+                    <ul class="environment-breadcrumb">
+                        <li> {{ date|date }}</li>
+                        <li><a href="index.html">39 Comments</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// SubHeader \\-->
+
+    <!--// Main Content \\-->
+    <div class="environment-main-content">
+
+        <!--// Main Section \\-->
+        <div class="environment-main-section">
+            <div class="container">
+                <div class="row">
+
+                    <!--// SideBaar \\-->
+                    <aside class="col-md-3">
+
+                        <!--// Widget Search \\-->
+                        <div class="widget widget_search">
+                            <form>
+                                <input type="text" value="Search" onblur="if(this.value == '') { this.value ='Search'; }" onfocus="if(this.value =='Search') { this.value = ''; }">
+                                <label>
+                                    <input type="submit" value="">
+                                </label>
+                            </form>
+                        </div>
+                        <!--// Widget Search \\-->
+
+                        <!--// Widget Recent Post \\-->
+                        <div class="widget widget_recent_blog">
+                            <div class="environment-widget-heading"><h2>Evenements</h2></div>
+                            <ul>
+
+                                <li>
+                                    <figure><a href="blog-detail.html"><img src="{{ asset('uploads/annonce/') }}{{ photo }} }}" alt=""></a> <a href="{{ path('show_detailed_annonce',{'id':id}) }}" class="environment-post-hover"><i class="fa fa-angle-double-right"></i></a> </figure>
+
+                                    <div class="environment-recentpost">
+                                        <h6><a href="blog-detail.html">{{ titre | upper }}</a></h6>
+                                         <ul class="widget-post">
+                                            <li><time datetime="2008-02-14 20:00">{{ date|date }}</time></li>
+                                            <li><a href="blog-detail.html"> by John Billy</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <!--// Widget Recent Post \\-->
+
+                        <!--// Widget upcomimg events \\-->
+                        <div class="widget widget_events">
+                            <div class="environment-widget-heading"><h2>Evenement à venir</h2></div>
+                            <ul>
+                                <li>
+                                    <time datetime="2008-02-14 20:00">20 FEB</time>
+                                    <div class="environment-event-text">
+                                        <h6><a href="event-detail.html">Suspendisse imperdi et risus vitae nunc</a></h6>
+                                        <span>Salford road, east London, UK</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="2008-02-14 20:00">10 MAY</time>
+                                    <div class="environment-event-text">
+                                        <h6><a href="event-detail.html">Suspendisse imperdi et risus vitae nunc</a></h6>
+                                        <span>Salford road, east London, UK</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <time datetime="2008-02-14 20:00">07 AUG</time>
+                                    <div class="environment-event-text">
+                                        <h6><a href="event-detail.html">Suspendisse imperdi et risus vitae nunc</a></h6>
+                                        <span>Salford road, east London, UK</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--// Widget upcomimg events \\-->
+
+                        <!--// widget_archive \\-->
+                        <div class="widget widget_archive">
+                            <div class="environment-widget-heading"><h2>Calender Archives</h2></div>
+                            <ul>
+                                <li><a href="404.html">13 February 2017</a></li>
+                                <li><a href="404.html">07 March 2017</a></li>
+                                <li><a href="404.html">21 August 2017</a></li>
+                                <li><a href="404.html">19 December 2017</a></li>
+                            </ul>
+                        </div>
+                        <!--// widget_archive \\-->
+
+                        <!--// Widget Gallery \\-->
+                        <div class="widget widget_gallery">
+                            <div class="environment-widget-heading"><h2>Our Gallery</h2></div>
+                            <ul>
+                                <li><a data-fancybox-group="group" href="extra-images/widget-gallery-img1.jpg" class="fancybox"><img src="extra-images/widget-gallery-img1.jpg" alt=""></a></li>
+                                <li><a data-fancybox-group="group" href="extra-images/widget-gallery-img2.jpg" class="fancybox"><img src="extra-images/widget-gallery-img2.jpg" alt=""></a></li>
+                                <li><a data-fancybox-group="group" href="extra-images/widget-gallery-img3.jpg" class="fancybox"><img src="extra-images/widget-gallery-img3.jpg" alt=""></a></li>
+                                <li><a data-fancybox-group="group" href="extra-images/widget-gallery-img4.jpg" class="fancybox"><img src="extra-images/widget-gallery-img4.jpg" alt=""></a></li>
+                                <li><a data-fancybox-group="group" href="extra-images/widget-gallery-img5.jpg" class="fancybox"><img src="extra-images/widget-gallery-img5.jpg" alt=""></a></li>
+                                <li><a data-fancybox-group="group" href="extra-images/widget-gallery-img6.jpg" class="fancybox"><img src="extra-images/widget-gallery-img6.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <!--// Widget Gallery \\-->
+
+
+
+                    </aside>
+                    <!--// SideBaar \\-->
+
+                    <div class="col-md-9">
+                        <figure class="environment-postthumb"><img src="{{ asset('uploads/annonce/') }}{{ photo }}" alt=""></figure>
+                       <br><br>
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ label }}" role="alert">
+
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        <div class="environment-rich-editor">
+                      <p>{{ description }}</p>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            {% if ( annonces.createur.id == app.user.id  ) %}
+
+
+                              <center>  <button type="button" class="modren-event-btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Supprimer l'annonce</button></center>
+
+
+
+
+
+
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="exampleModalLabel">Alert !!</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <p>Etes vous sure de vouloir supprimer l'annonce ?!</p>
+                                                    </div>
+                                                    <br><br><br><br>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <a href="{{ path('delete_annonce', {'id':annonces.id}) }}">  <button type="button" class="btn btn-primary">Supprimer l'annonce</button></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+
+
+                                {% endif %}
+
+                            {% endif %}
+<br><br><br>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <form action="{{ path('add_comment') }}" method="post" id="comment">
+
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="comment" placeholder="Ecrire un commentaire..." rows="3"></textarea><br>
+                                        <input type="hidden"  name="annonce_id" value="{{ annonces.getId() }}">
+                                        <button class="modren-event-btn" type="submit">Commenter</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                            {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                        <div class="alert alert-danger" role="alert">
+                            Pour publier un commentaire, il faut que vous vous <a href="{{ path('fos_user_security_login') }}">connecter </a>, Sinon
+                            <a href="{{ path('fos_user_registration_register') }}">Inscrivez vous</a>
+{% endif %}
+
+                        </div>
+
+
+
+
+                        <div class="comments-area">
+                            <!--// coments \\-->
+                            <div class="environment-section-heading"><h2><span>Commentaires</span></h2></div>
+                            <ul class="comment-list">
+                                <li>
+                                    {% for comment in annonces.commentaires %}
+                                    <div class="thumb-list">
+                                        <figure><img alt="" src=""></figure>
+                                        <div class="text-holder">
+                                            <h6>{{comment.getUser().getUsername()}}</h6>
+                                            <time class="post-date" datetime="2008-02-14 20:00">{{ comment.getPostedAt()|date('F jS \\a\\t g:ia') }}</time>
+                                            <p> {{ comment.getContenu() }}</p>
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+                                            {% if ( comment.user.id == app.user.id  ) %}
+                                                <br>
+                                            <a class="comment-reply-link" href="{{ path('delete_comment', {'id':comment.id}) }}">Supprimer <i class="fa fa-eraser"></i></a>
+
+                                                {% else %}
+
+                                            {% endif %}
+
+                                            {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                                                <br>
+
+                                                {% endif %}
+
+
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                    <!-- .children -->
+                                </li>
+                                <!-- #comment-## -->
+
+                            </ul>
+
+
+                            <!--// coments \\-->
+                            <!--// comment-respond \\-->
+                            <div class="comment-respond">
+                                <div class="environment-section-heading"><h2><span>Leave a Comment</span></h2></div>
+                                <form>
+                                    <p class="environment-full-form">
+                                        <textarea name="comment" placeholder="Comment*" class="commenttextarea"></textarea>
+                                        <i class="fa fa-comment"></i>
+                                    </p>
+                                    <p>
+                                        <input type="text" value="Name*" onblur="if(this.value == '') { this.value ='Name*'; }" onfocus="if(this.value =='Name*') { this.value = ''; }">
+                                        <i class="fa fa-user"></i>
+                                    </p>
+                                    <p>
+                                        <input type="text" value="Email*" onblur="if(this.value == '') { this.value ='Email*'; }" onfocus="if(this.value =='Email*') { this.value = ''; }">
+                                        <i class="fa fa-envelope"></i>
+                                    </p>
+                                    <p>
+                                        <input type="text" value="Website*" onblur="if(this.value == '') { this.value ='Website*'; }" onfocus="if(this.value =='Website*') { this.value = ''; }">
+                                        <i class="fa fa-globe"></i>
+                                    </p>
+                                    <p class="form-submit"><input name="submit" class="submit" value="Submit" type="submit"> <input name="comment_post_ID" value="99" id="comment_post_ID" type="hidden">
+                                    </p>
+                                </form>
+                            </div>
+                            <!--// comment-respond \\-->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--// Main Section \\-->
+
+    </div>
+{% endblock %}

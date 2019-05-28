@@ -1,0 +1,19 @@
+ecosystem_admin_dashboard:
+    path:     /admin
+    defaults: { _controller: UserBundle:Default:admin }
+
+citoyen_home:
+    path:     /citoyen
+    defaults: { _controller: UserBundle:Default:citoyen }
+
+recycleur_home:
+    path:     /recycleur
+    defaults: { _controller: UserBundle:Default:recycleur }
+
+collecteur_home:
+    path:     /collecteur
+    defaults: { _controller: UserBundle:Default:collecteur }
+
+admin_dash:
+    path:     /admin/dashboard
+    defaults: { _controller: UserBundle:Default:admindashboard }

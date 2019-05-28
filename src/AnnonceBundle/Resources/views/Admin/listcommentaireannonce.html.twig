@@ -1,0 +1,43 @@
+{% extends '@User/Admin/base2.html.twig' %}
+{% block container %}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="white-box">
+            <h3 class="box-title m-b-0">Liste des commantaire par utilisateurs</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Nom utilisateur</th>
+                        <th>Nom de l'Annonce</th>
+                        <th>Contenu</th>
+                        <th>Date de publiction</th>
+                        <th class="text-nowrap">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+
+
+
+{% for commentaires in commentaires %}
+                    <tr>
+                        <td>{{ commentaires.user }}</td>
+                        <td>{{ commentaires.annonce.titre }}</td>
+                        <td>{{ commentaires.contenu }}</td>
+
+                        <td>{{ commentaires.postedAt|date }}</td>
+
+                        <td class="">
+
+                            <a href="{{ path('delete_comment', {'id':commentaires.id}) }}" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
