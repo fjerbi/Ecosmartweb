@@ -11,6 +11,6 @@ ajax search
 admin dashboard
 Adding announces via google maps marker 
 
-and many other features will be soon added to this project ! 
+and many other features will be soon added  ! 
 
 
